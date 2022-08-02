@@ -5,6 +5,7 @@ import '../component/data/network.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 const apiKey = '947197bdd2b24d219e57';
 
@@ -88,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         SizedBox(height: 10),
         Text('다량영양소'),
+        
       ],
     );
   }
