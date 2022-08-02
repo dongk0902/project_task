@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:project_task/utils/divider.dart';
-import 'package:project_task/utils/row.dart';
+import 'package:project_task/utils/columnAndRow.dart';
 
 class Menu extends StatelessWidget {
   final String menu;
-  final String firstText;
-  final String secondText;
+  final String typeValue;
+  final String ingredientValue;
+  final String doseValue;
+  final String kcalValue;
 
   const Menu({
     required this.menu,
-    required this.firstText,
-    required this.secondText,
+    required this.typeValue,
+    required this.ingredientValue,
+    required this.doseValue,
+    required this.kcalValue,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    var height = MediaQuery.of(context).size.height * 0.25;
+    var width = MediaQuery.of(context).size.width * 0.6;
+    return SizedBox(
+      height: height,
+      width: width,
       child: Column(
         children: [
           Row(
@@ -34,7 +42,13 @@ class Menu extends StatelessWidget {
               ),
             ],
           ),
-          MenuRow(firstText: firstText, secondText: secondText),
+          const SizedBox(height: 20),
+          MenuColumn(
+            typeValue: typeValue,
+            ingredientValue: ingredientValue,
+            doseValue: doseValue,
+            kcalValue: kcalValue,
+          ),
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project_task/component/mealmenu.dart';
-import 'package:project_task/utils/divider.dart';
 
 import '../component/data/network.dart';
 import 'dart:convert';
@@ -40,27 +39,30 @@ class _HomeScreenState extends State<HomeScreen> {
     '찹쌀땅콩밥',
   ];
 
-  var dataList = [
-    '종류',
-    '재료',
-    '정량',
-    '칼로리',
-  ];
-
-  var dataValue = [
+  var typeValue = [
     '밥류',
+    '밥류',
+    '밥류',
+  ];
+  var ingredientValue = [
+    '흰쌀',
     '보리쌀',
+    '찹쌀, 땅콩',
+  ];
+  var doseValue = [
     '210g',
-    '130kcal',
+    '210g',
+    '210g',
+  ];
+  var kcalValue = [
+    '130 kcal',
+    '130 kcal',
+    '130 kcal',
   ];
 
   @override
   Widget build(BuildContext context) {
-    var M = MediaQuery.of(context);
-    print("넓이 : ${M.size.width}");
-    print("높이:${M.size.height}");
-
-    BorderSide _borderside = BorderSide(color: Colors.grey);
+    BorderSide _borderSide = BorderSide(color: Colors.grey);
 
     return Column(
       children: [
@@ -70,24 +72,22 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               return MealMenu(
                 mealMenuBorder: index + 1 == mealList.length
-                    ? Border(
-                        top: _borderside,
-                        bottom: _borderside,
-                      )
-                    : Border(
-                        top: _borderside,
-                      ),
+                    ? Border(top: _borderSide, bottom: _borderSide)
+                    : Border(top: _borderSide),
                 when: mealList[index],
                 kcalNumber: kcalList[index],
                 menu: menuList[index],
-                firstText: dataList[index],
-                secondText: dataValue[index],
+                typeValue: typeValue[index],
+                ingredientValue: ingredientValue[index],
+                doseValue: doseValue[index],
+                kcalValue: kcalValue[index],
               );
             },
             itemCount: mealList.length,
           ),
         ),
         SizedBox(height: 10),
+        Text('다량영양소'),
       ],
     );
   }

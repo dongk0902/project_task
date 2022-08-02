@@ -11,14 +11,18 @@ class Meal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height * 0.25;
+    var width = MediaQuery.of(context).size.width * 0.2;
     return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         border: Border(
           right: BorderSide(color: Colors.grey),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 30, 700),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

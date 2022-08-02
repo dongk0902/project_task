@@ -9,38 +9,47 @@ class MealMenu extends StatelessWidget {
   final String when;
   final String kcalNumber;
   final String menu;
-  final String firstText;
-  final String secondText;
+  final String typeValue;
+  final String ingredientValue;
+  final String doseValue;
+  final String kcalValue;
 
   const MealMenu({
     this.mealMenuBorder,
     required this.when,
     required this.kcalNumber,
     required this.menu,
-    required this.firstText,
-    required this.secondText,
+    required this.typeValue,
+    required this.ingredientValue,
+    required this.doseValue,
+    required this.kcalValue,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: BoxDecoration(
         border: mealMenuBorder,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
         children: [
-          Meal(
-            when: when,
-            kcalNumber: kcalNumber,
-          ),
-          RenderVerticalDivider(),
-          Menu(
-            menu: menu,
-            firstText: firstText,
-            secondText: secondText,
+          Row(
+            children: [
+              Meal(
+                when: when,
+                kcalNumber: kcalNumber,
+              ),
+              RenderVerticalDivider(),
+              Menu(
+                menu: menu,
+                typeValue: typeValue,
+                ingredientValue: ingredientValue,
+                doseValue: doseValue,
+                kcalValue: kcalValue,
+              ),
+            ],
           ),
         ],
       ),
