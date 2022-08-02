@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Meal extends StatelessWidget {
   final String when;
-  final int kcalNumber;
+  final String kcalNumber;
   const Meal({
     required this.when,
     required this.kcalNumber,
@@ -18,7 +18,7 @@ class Meal extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 20, 30, 400),
+        padding: const EdgeInsets.fromLTRB(10, 20, 30, 700),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,7 +32,7 @@ class Meal extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '${kcalNumber}',
+                  '$kcalNumber',
                   style: TextStyle(
                       color: Colors.greenAccent[700],
                       fontWeight: FontWeight.w700),

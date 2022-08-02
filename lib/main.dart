@@ -3,6 +3,8 @@ import 'package:project_task/screen/homscreen.dart';
 
 void main() => runApp(
       MaterialApp(
-        home: HomeScreen(),
+        home: Scaffold(
+          body: HomeScreen(),
+        ),
       ),
     );

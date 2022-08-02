@@ -4,8 +4,13 @@ import 'package:project_task/utils/row.dart';
 
 class Menu extends StatelessWidget {
   final String menu;
+  final String firstText;
+  final String secondText;
+
   const Menu({
     required this.menu,
+    required this.firstText,
+    required this.secondText,
     Key? key,
   }) : super(key: key);
 
@@ -29,10 +34,7 @@ class Menu extends StatelessWidget {
               ),
             ],
           ),
-          MenuRow(firstText: '종류', secondText: '밥류'),
-          MenuRow(firstText: '재료', secondText: '보리쌀'),
-          MenuRow(firstText: '정량', secondText: '210g'),
-          MenuRow(firstText: '칼로리', secondText: '130 kcal'),
+          MenuRow(firstText: firstText, secondText: secondText),
         ],
       ),
     );
