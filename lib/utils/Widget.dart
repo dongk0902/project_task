@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../component/barChart.dart';
 import '../component/pieChart.dart';
 
-Widget getPie(dynamic index, var mealList, BuildContext context) {
+Widget renderPie(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
     return Pie();
   } else {
@@ -11,7 +11,7 @@ Widget getPie(dynamic index, var mealList, BuildContext context) {
   }
 }
 
-Widget getText(dynamic index, var mealList, BuildContext context) {
+Widget renderText(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
     return Text('다량영양소');
   } else {
@@ -19,7 +19,7 @@ Widget getText(dynamic index, var mealList, BuildContext context) {
   }
 }
 
-Widget getButton1(dynamic index, var mealList, BuildContext context) {
+Widget renderButton1(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
     return ElevatedButton(
       onPressed: () {
@@ -37,7 +37,7 @@ Widget getButton1(dynamic index, var mealList, BuildContext context) {
   }
 }
 
-Widget getButton2(dynamic index, var mealList, BuildContext context) {
+Widget renderButton2(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
     return ElevatedButton(
       onPressed: () {

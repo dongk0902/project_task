@@ -51,7 +51,8 @@ class PieState extends State {
           return PieChartSectionData(
             color: const Color(0xff845bef),
             value: 35.85,
-            title: '단백질 35.85%',
+            title: '''단백질
+35.85%''',
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -63,7 +64,8 @@ class PieState extends State {
           return PieChartSectionData(
             color: Colors.teal[300],
             value: 35.85,
-            title: '지방 35.85%',
+            title: '''지방
+35.85%''',
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -75,7 +77,8 @@ class PieState extends State {
           return PieChartSectionData(
             color: Colors.amber[600],
             value: 28.30,
-            title: '탄수화물 28.30%',
+            title: '''탄수화물
+28.30%''',
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
