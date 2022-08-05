@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_task/screens/bar_chart_screen.dart';
+import 'package:project_task/widgets/button.dart';
 import '../utils/pie.dart';
 
 Widget renderPie(dynamic index, var mealList, BuildContext context) {
@@ -20,15 +21,8 @@ Widget renderText(dynamic index, var mealList, BuildContext context) {
 
 Widget renderButton1(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => Exam2(),
-          ),
-        );
-      },
+    return ElevatedPushButton(
+      screen: Exam2(),
       child: Text('Fl_Bar chart'),
     );
   } else {
@@ -38,14 +32,8 @@ Widget renderButton1(dynamic index, var mealList, BuildContext context) {
 
 Widget renderButton2(dynamic index, var mealList, BuildContext context) {
   if (index + 1 == mealList.length) {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => ListView(),
-          ),
-        );
-      },
+    return ElevatedPushButton(
+      screen: ListView(),
       child: Text('리스트 뷰'),
     );
   } else {

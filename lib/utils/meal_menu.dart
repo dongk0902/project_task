@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_task/widgets/text.dart';
 import 'package:provider/provider.dart';
 import 'Icon.dart';
 import 'list_data.dart';
@@ -19,7 +20,6 @@ class MealMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: BoxDecoration(
@@ -57,6 +57,7 @@ class Meal extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height * 0.25;
     var width = MediaQuery.of(context).size.width * 0.2;
+
     return Container(
       height: height,
       width: width,
@@ -112,7 +113,6 @@ class _MenuState extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-
     var _screenSize = MediaQuery.of(context).size;
     var height = _screenSize.height * 0.25;
     var width = _screenSize.width * 0.6;
@@ -128,8 +128,8 @@ class _MenuState extends State<Menu> {
             children: [
               Text(widget.menu),
               IconButton(
-                splashColor: Colors.white.withOpacity(0.0),
-                highlightColor: Colors.white.withOpacity(0.0),
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onPressed: () {
                   // Provider.of<IconFavorite>(context).changeIcon();
                   setState(() {
@@ -154,14 +154,8 @@ class _MenuState extends State<Menu> {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      typeList[index],
-                      style: const TextStyle(color: Colors.grey),
-                    ),
-                    Text(
-                      valueList[index],
-                      style: const TextStyle(color: Colors.grey),
-                    ),
+                    GreyText(text: typeList[index]),
+                    GreyText(text: valueList[index]),
                   ],
                 );
               },
