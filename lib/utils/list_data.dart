@@ -17,23 +17,16 @@ var menuList = [
   '찹쌀땅콩밥',
 ];
 
-var typeValue = [
-  '밥류',
-  '밥류',
-  '밥류',
+var typeList = [
+  '종류',
+  '재료',
+  '정량',
+  '칼로리',
 ];
-var ingredientValue = [
+
+var valueList = [
+  '밥류',
   '흰쌀',
-  '보리쌀',
-  '찹쌀, 땅콩',
-];
-var doseValue = [
   '210g',
-  '210g',
-  '210g',
-];
-var kcalValue = [
-  '130 kcal',
-  '130 kcal',
-  '130 kcal',
+  '130kcal',
 ];
