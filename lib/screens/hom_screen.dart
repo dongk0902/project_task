@@ -4,10 +4,6 @@ import 'package:project_task/utils/bar_chart.dart';
 import 'package:project_task/utils/meal_menu.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:fl_chart/fl_chart.dart';
-import 'package:project_task/utils/widget.dart';
-import 'package:project_task/widgets/button.dart';
-
 import '../utils/pie.dart';
 import '../utils/list_data.dart';
 
@@ -21,9 +17,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String? foodName;
+  int? carbohydrate;
+  int? protein;
+  int? fat;
+  int? sodium;
+  int? cholesterol;
+  int? saturatedFattyAcid;
+
   void FoodNutrition() async {
     Network network = Network(
-        'http://openapi.foodsafetykorea.go.kr/api/${apiKey}/I2790/json/1/21');
+        'http://openapi.foodsafetykorea.go.kr/api/${apiKey}/I2790/json/1/1000');
+
+    var foodData = await network.getJsonData();
+  }
+
+  void updateData(dynamic foodData, int jsonNumber) {
+    foodName = foodData['row'][jsonNumber]['DESC_KOR']; // 이름
+    carbohydrate = foodData['row'][jsonNumber]['NUTR_CONT2']; // 탄수화물
+    protein = foodData['row'][jsonNumber]['NUTR_CONT3']; // 단백질
+    fat = foodData['row'][jsonNumber]['NUTR_CONT4']; // 지방
+    sodium = foodData['row'][jsonNumber]['NUTR_CONT6']; // 식이섬유 없음 => 나트륨으로 대체
+    cholesterol = foodData['row'][jsonNumber]['NUTR_CONT7']; // 콜레스테롤
+    saturatedFattyAcid = foodData['row'][jsonNumber]['NUTR_CONT8']; // 포화 지방산
   }
 
   @override
@@ -60,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget renderBar(dynamic index) {
-
     if (index + 1 == mealList.length) {
       return Exam();
     } else {
@@ -75,5 +90,4 @@ class _HomeScreenState extends State<HomeScreen> {
       return SizedBox.shrink();
     }
   }
-
 }
