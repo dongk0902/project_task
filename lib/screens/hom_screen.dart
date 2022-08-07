@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_task/providers/data/network.dart';
-import 'package:project_task/screens/bar_chart_screen.dart';
-import 'package:project_task/utils/stacked_bar.dart';
+import 'package:project_task/utils/bar_chart.dart';
 import 'package:project_task/utils/meal_menu.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -49,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   renderBar(index),
                   renderPie(index),
-                  barButton(index),
                 ],
               );
             },
@@ -64,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget renderBar(dynamic index) {
 
     if (index + 1 == mealList.length) {
-      return StackedBarChart();
+      return Exam();
     } else {
       return SizedBox.shrink();
     }
@@ -73,17 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget renderPie(dynamic index) {
     if (index + 1 == mealList.length) {
       return Pie();
-    } else {
-      return SizedBox.shrink();
-    }
-  }
-
-  Widget barButton(dynamic index) {
-    if (index + 1 == mealList.length) {
-      return ElevatedPushButton(
-        screen: Exam2(),
-        child: Text('Fl_Bar chart'),
-      );
     } else {
       return SizedBox.shrink();
     }
