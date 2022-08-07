@@ -50,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   renderBar(index),
                   renderPie(index),
                   barButton(index),
-                  listButton(index),
                 ],
               );
             },
@@ -84,17 +83,6 @@ class _HomeScreenState extends State<HomeScreen> {
       return ElevatedPushButton(
         screen: Exam2(),
         child: Text('Fl_Bar chart'),
-      );
-    } else {
-      return SizedBox.shrink();
-    }
-  }
-
-  Widget listButton(dynamic index) {
-    if (index + 1 == mealList.length) {
-      return ElevatedPushButton(
-        screen: ListView(),
-        child: Text('리스트 뷰'),
       );
     } else {
       return SizedBox.shrink();

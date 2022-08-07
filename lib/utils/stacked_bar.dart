@@ -24,29 +24,31 @@ class _StackedBarChartState extends State<StackedBarChart> {
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
-        title: ChartTitle(
-          text: '다량영양소',
-          alignment: ChartAlignment.near,
-          borderWidth: 10,
-          textStyle: const TextStyle(
-              color: Colors.black87, fontWeight: FontWeight.w700),
-        ),
-        tooltipBehavior: _tooltipBehavior,
-        series: <ChartSeries>[
-          StackedBar100Series<NutritionData, String>(
-              dataSource: _chartData!,
-              xValueMapper: (NutritionData nut, _) => nut.nutritionCategory,
-              yValueMapper: (NutritionData nut, _) => nut.real,
-              name: '비율',
-              color: Colors.tealAccent[400]),
-          StackedBar100Series<NutritionData, String>(
-              dataSource: _chartData!,
-              xValueMapper: (NutritionData nut, _) => nut.nutritionCategory,
-              yValueMapper: (NutritionData nut, _) => nut.oh,
-              name: '전체 값',
-              color: Colors.grey[100]),
-        ],
-        primaryXAxis: CategoryAxis());
+      title: ChartTitle(
+        text: '다량영양소',
+        alignment: ChartAlignment.near,
+        borderWidth: 10,
+        textStyle:
+            const TextStyle(color: Colors.black87, fontWeight: FontWeight.w700),
+      ),
+      tooltipBehavior: _tooltipBehavior,
+      series: <ChartSeries>[
+        StackedBar100Series<NutritionData, String>(
+            dataSource: _chartData!,
+            xValueMapper: (NutritionData nut, _) => nut.nutritionCategory,
+            yValueMapper: (NutritionData nut, _) => nut.real,
+            name: '비율',
+            color: Colors.tealAccent[400]),
+        StackedBar100Series<NutritionData, String>(
+            dataSource: _chartData!,
+            xValueMapper: (NutritionData nut, _) => nut.nutritionCategory,
+            yValueMapper: (NutritionData nut, _) => nut.oh,
+            name: '전체 값',
+            color: Colors.grey[100]),
+      ],
+      primaryXAxis: CategoryAxis(),
+      primaryYAxis: NumericAxis(edgeLabelPlacement: EdgeLabelPlacement.shift),
+    );
   }
 
   List<NutritionData>? getChartData() {
