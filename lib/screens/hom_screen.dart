@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:project_task/providers/data/network.dart';
+import 'package:project_task/screens/bar_chart_screen.dart';
+import 'package:project_task/utils/stacked_bar.dart';
 import 'package:project_task/utils/meal_menu.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter/cupertino.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:project_task/utils/widget.dart';
+import 'package:project_task/widgets/button.dart';
 
 import '../utils/pie.dart';
 import '../utils/list_data.dart';
@@ -45,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     kcalNumber: kcalList[index],
                     menu: menuList[index],
                   ),
-                  renderText(index, mealList, context),
-                  renderPie(index, mealList, context),
-                  renderButton1(index, mealList, context),
-                  renderButton2(index, mealList, context),
+                  renderBar(index),
+                  renderPie(index),
+                  barButton(index),
+                  listButton(index),
                 ],
               );
             },
@@ -59,4 +61,44 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+  Widget renderBar(dynamic index) {
+
+    if (index + 1 == mealList.length) {
+      return StackedBarChart();
+    } else {
+      return SizedBox.shrink();
+    }
+  }
+
+  Widget renderPie(dynamic index) {
+    if (index + 1 == mealList.length) {
+      return Pie();
+    } else {
+      return SizedBox.shrink();
+    }
+  }
+
+  Widget barButton(dynamic index) {
+    if (index + 1 == mealList.length) {
+      return ElevatedPushButton(
+        screen: Exam2(),
+        child: Text('Fl_Bar chart'),
+      );
+    } else {
+      return SizedBox.shrink();
+    }
+  }
+
+  Widget listButton(dynamic index) {
+    if (index + 1 == mealList.length) {
+      return ElevatedPushButton(
+        screen: ListView(),
+        child: Text('리스트 뷰'),
+      );
+    } else {
+      return SizedBox.shrink();
+    }
+  }
+
 }
